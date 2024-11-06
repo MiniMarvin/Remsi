@@ -36,4 +36,4 @@ inputFilePath = "/".join(inputFile.split('/')[:-1])
 if len(inputFilePath) > 0:
 	inputFilePath = inputFilePath + "/"
 inputFileName = inputFile.split('/')[-1]
-print("ffmpeg -i", inputFile, vfilter, afilter, inputFilePath + "outfile_" + inputFileName)
+print("ffmpeg -i", "\"" + inputFile + "\"", vfilter, afilter, "\"" + inputFilePath + "outfile_" + inputFileName + "\"")
