@@ -32,4 +32,8 @@ vfilter = "-vf \"select=" + selectionFilter + ",setpts=N/FRAME_RATE/TB\""
 afilter = "-af \"aselect=" + selectionFilter + ",asetpts=N/SR/TB\""
 
 # output ffmpeg command
-print("ffmpeg -i", inputFile, vfilter, afilter, "outfile_" + inputFile)
+inputFilePath = "/".join(inputFile.split('/')[:-1])
+if len(inputFilePath) > 0:
+	inputFilePath = inputFilePath + "/"
+inputFileName = inputFile.split('/')[-1]
+print("ffmpeg -i", inputFile, vfilter, afilter, inputFilePath + "outfile_" + inputFileName)
